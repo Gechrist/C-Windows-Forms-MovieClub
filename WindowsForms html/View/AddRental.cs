@@ -19,11 +19,11 @@ namespace WindowsForms_html
         public AddRental()
         {
             InitializeComponent();
-            comboBox1.DataSource = Client.ClientList;
+            comboBox1.DataSource = ReadEntries.AllClients();
             comboBox1.DisplayMember = "Name";
             comboBox1.ValueMember = "Name";
 
-            comboBox2.DataSource = Movie.MovieList;
+            comboBox2.DataSource = ReadEntries.AllMovies();
             comboBox2.DisplayMember = "Title";
             comboBox2.ValueMember = "Title";
             comboBox3.Text = 0.ToString();

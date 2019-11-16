@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,29 +20,39 @@ namespace WindowsForms_html.Controller
 
         public static List<Client> AllClients()
         {
-            string json = System.IO.File.ReadAllText(@"C:\Users\George\Desktop\Clients.json");
-            var clients = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Client>>(json);
-            return clients;
+            if (File.Exists(MainForm.savedir+"Clients.json"))
+            {
+                string json = System.IO.File.ReadAllText(MainForm.savedir+"Clients.json");
+                var clients = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Client>>(json);
+                return clients;
+            } else { return null; }
         }
 
         public static List<Movie> AllMovies()
         {
-            string json = System.IO.File.ReadAllText(@"C:\Users\George\Desktop\Movies.json");
-            var movies = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Movie>>(json);
-            return movies;
+            if (File.Exists(MainForm.savedir+"Movies.json"))
+            {
+                string json = System.IO.File.ReadAllText(MainForm.savedir+"Movies.json");
+                var movies = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Movie>>(json);
+                return movies;
+            }else { return null; }
         }
 
         public static List<Rental> AllRentals()
         {
-            string json = System.IO.File.ReadAllText(@"C:\Users\George\Desktop\Rentals.json");
-            var rentals = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Rental>>(json);
-            return rentals;
+            if (File.Exists(MainForm.savedir+"Movies.json"))
+            {
+                string json = System.IO.File.ReadAllText(MainForm.savedir+"Rentals.json");
+                var rentals = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Rental>>(json);
+                return rentals;
+            }
+            else { return null; }
         }
 
         public static List<int> SearchClient(string searchCl)
         {
             SearchClients.Clear();
-            string json = System.IO.File.ReadAllText(@"C:\Users\George\Desktop\Clients.json");
+            string json = System.IO.File.ReadAllText(MainForm.savedir+"Clients.json");
             var clients = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Client>>(json);
             int counter;
             foreach (Client c in clients)
@@ -60,7 +71,7 @@ namespace WindowsForms_html.Controller
         public static List<int> SearchRental(string searchRe)
         {
             SearchRentals.Clear();
-            string json = System.IO.File.ReadAllText(@"C:\Users\George\Desktop\Rentals.json");
+            string json = System.IO.File.ReadAllText(MainForm.savedir+"Rentals.json");
             var rentals = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Rental>>(json);
             int counter;
             foreach (Rental r in rentals)
@@ -78,7 +89,7 @@ namespace WindowsForms_html.Controller
         public static List<int> SearchMovie(string searchMo)
         {
             SearchMovies.Clear();
-            string json = System.IO.File.ReadAllText(@"C:\Users\George\Desktop\Movies.json");
+            string json = System.IO.File.ReadAllText(MainForm.savedir+"Movies.json");
             var movies = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Movie>>(json);
             int counter;
             foreach (Movie m in movies)

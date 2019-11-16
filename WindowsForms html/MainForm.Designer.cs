@@ -115,14 +115,14 @@
             // newRentalToolStripMenuItem
             // 
             this.newRentalToolStripMenuItem.Name = "newRentalToolStripMenuItem";
-            this.newRentalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newRentalToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.newRentalToolStripMenuItem.Text = "New Rental";
             this.newRentalToolStripMenuItem.Click += new System.EventHandler(this.newRentalToolStripMenuItem_Click);
             // 
             // editRentalToolStripMenuItem
             // 
             this.editRentalToolStripMenuItem.Name = "editRentalToolStripMenuItem";
-            this.editRentalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editRentalToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.editRentalToolStripMenuItem.Text = "Edit Rental";
             this.editRentalToolStripMenuItem.Click += new System.EventHandler(this.editRentalToolStripMenuItem_Click);
             // 
@@ -136,14 +136,14 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(12, 20);
             // 
-            // Main
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Menu);
             this.MainMenuStrip = this.Menu;
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.Text = "VideoClub";
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();

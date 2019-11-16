@@ -24,7 +24,7 @@ namespace WindowsForms_html.Controller
             {
                 Client c = new Client(fname, lname, email, tel);
                 Client.ClientList.Add(c);
-                File.WriteAllText(@"C:\Users\George\Desktop\Clients.json", JsonConvert.SerializeObject(Client.ClientList));
+                File.WriteAllText(MainForm.savedir + "Clients.json", JsonConvert.SerializeObject(Client.ClientList));
                 return false;
             }
             
@@ -42,7 +42,7 @@ namespace WindowsForms_html.Controller
             {
                 Movie m = new Movie(title, genre, duration, price);
                 Movie.MovieList.Add(m);
-                File.WriteAllText(@"C:\Users\George\Desktop\Movies.json", JsonConvert.SerializeObject(Movie.MovieList));
+                File.WriteAllText(MainForm.savedir+"Movies.json", JsonConvert.SerializeObject(Movie.MovieList));
                 return false;
             }
 
@@ -58,7 +58,7 @@ namespace WindowsForms_html.Controller
             {
                 Rental r = new Rental(name, tel, title, days, amount);
                 Rental.RentalList.Add(r);
-                File.WriteAllText(@"C:\Users\George\Desktop\Rentals.json", JsonConvert.SerializeObject(Rental.RentalList));
+                File.WriteAllText(MainForm.savedir + "Rentals.json", JsonConvert.SerializeObject(Rental.RentalList));
                 return false;
             }
 

@@ -26,14 +26,14 @@ namespace WindowsForms_html.Controller
 
         public static void UpdateClJson(dynamic orval, string field, string value, int index)
         {
-            string json = File.ReadAllText(@"C:\Users\George\Desktop\Clients.json");
+            string json = File.ReadAllText(MainForm.savedir + "Clients.json");
             dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
             jsonObj[index][field] = value;
             if (field == "Fname")
             {
                 jsonObj[index]["Name"] = value + " " + jsonObj[index]["Lname"];
 
-                string rental_t = File.ReadAllText(@"C:\Users\George\Desktop\Rentals.json");
+                string rental_t = File.ReadAllText(MainForm.savedir + "Rentals.json");
                 var rentals_t = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Rental>>(rental_t);
                 foreach (Rental r in rentals_t)
                 {
@@ -43,13 +43,13 @@ namespace WindowsForms_html.Controller
                     }
                 }
                 string outputtitle = Newtonsoft.Json.JsonConvert.SerializeObject(rentals_t, Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText(@"C:\Users\George\Desktop\Rentals.json", outputtitle);
+                File.WriteAllText(MainForm.savedir+"Rentals.json", outputtitle);
             }
             else if (field == "Lname")
             {
                 jsonObj[index]["Name"] = jsonObj[index]["Fname"] + " " + value;
 
-                string rental_t = File.ReadAllText(@"C:\Users\George\Desktop\Rentals.json");
+                string rental_t = File.ReadAllText(MainForm.savedir+"Rentals.json");
                 var rentals_t = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Rental>>(rental_t);
                 foreach (Rental r in rentals_t)
                 {
@@ -59,23 +59,23 @@ namespace WindowsForms_html.Controller
                     }
                 }
                 string outputtitle = Newtonsoft.Json.JsonConvert.SerializeObject(rentals_t, Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText(@"C:\Users\George\Desktop\Rentals.json", outputtitle);
+                File.WriteAllText(MainForm.savedir+"Rentals.json", outputtitle);
             }
 
             string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText(@"C:\Users\George\Desktop\Clients.json", output);
+            File.WriteAllText(MainForm.savedir+"Clients.json", output);
         }
 
         public static void UpdateMoJson(dynamic orval, string field, string value, int index)
         {
-            string json = File.ReadAllText(@"C:\Users\George\Desktop\Movies.json");
+            string json = File.ReadAllText(MainForm.savedir+"Movies.json");
             dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
             jsonObj[index][field] = value;
             string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText(@"C:\Users\George\Desktop\Movies.json", output);
+            File.WriteAllText(MainForm.savedir+"Movies.json", output);
             if (field == "Title")
             {
-                string rental_t = File.ReadAllText(@"C:\Users\George\Desktop\Rentals.json");
+                string rental_t = File.ReadAllText(MainForm.savedir+"Rentals.json");
                 var rentals_t = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Rental>>(rental_t);
                 foreach (Rental r in rentals_t)
                 {
@@ -85,11 +85,11 @@ namespace WindowsForms_html.Controller
                     }
                 }
                 string outputtitle = Newtonsoft.Json.JsonConvert.SerializeObject(rentals_t, Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText(@"C:\Users\George\Desktop\Rentals.json", outputtitle);
+                File.WriteAllText(MainForm.savedir+"Rentals.json", outputtitle);
             }
             if (field == "Price")
             {
-                string rental_r = File.ReadAllText(@"C:\Users\George\Desktop\Rentals.json");
+                string rental_r = File.ReadAllText(MainForm.savedir+"Rentals.json");
                 var rentals_r = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Rental>>(rental_r);
                 foreach (Rental r in rentals_r)
                 {
@@ -99,7 +99,7 @@ namespace WindowsForms_html.Controller
                     }
                 }
                 string outputprice = Newtonsoft.Json.JsonConvert.SerializeObject(rentals_r, Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText(@"C:\Users\George\Desktop\Rentals.json", outputprice);
+                File.WriteAllText(MainForm.savedir+"Rentals.json", outputprice);
 
             }
 
@@ -119,7 +119,7 @@ namespace WindowsForms_html.Controller
         }
         public static void UpdateReJson(string field, string value, int index, string optional = "")
         {
-            string json = File.ReadAllText(@"C:\Users\George\Desktop\Rentals.json");
+            string json = File.ReadAllText(MainForm.savedir+"Rentals.json");
             dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
             jsonObj[index][field] = value;
 
@@ -130,7 +130,7 @@ namespace WindowsForms_html.Controller
 
             if (field == "Days")
             {
-                string movie_m = File.ReadAllText(@"C:\Users\George\Desktop\Movies.json");
+                string movie_m = File.ReadAllText(MainForm.savedir+"Movies.json");
                 var movies_m = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Movie>>(movie_m);
                 foreach (Movie m in movies_m)
                 {
@@ -143,7 +143,7 @@ namespace WindowsForms_html.Controller
 
             if (field == "Title")
             {
-                string movie_m = File.ReadAllText(@"C:\Users\George\Desktop\Movies.json");
+                string movie_m = File.ReadAllText(MainForm.savedir+"Movies.json");
                 var movies_m = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Movie>>(movie_m);
                 int val = int.Parse(optional);
                 foreach (Movie m in movies_m)
@@ -155,7 +155,7 @@ namespace WindowsForms_html.Controller
                 }
             }
             string outputprice = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText(@"C:\Users\George\Desktop\Rentals.json", outputprice);
+            File.WriteAllText(MainForm.savedir+"Rentals.json", outputprice);
         }
     }
 }    

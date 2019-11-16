@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsForms_html.Models;
 
 namespace WindowsForms_html
 {
@@ -18,15 +18,11 @@ namespace WindowsForms_html
         public MainForm()
         {
             InitializeComponent();
-            Client.ClientList.Add(new Client("alpha", "alpha", "alpha@alpha.gr", "1142149212"));
-            Client.ClientList.Add(new Client("beta", "beta", "beta@beta.gr", "1212121212"));
-            Client.ClientList.Add(new Client("charlie", "charlie", "charlie@charlie.gr", "1216128412"));
-            Movie.MovieList.Add(new Movie("Die Hard", "action", 112, 10));
-            Movie.MovieList.Add(new Movie("Interstellar", "sci-fi", 140, 15));
-            Movie.MovieList.Add(new Movie("Dumb and Dumber", "comedy", 100, 9));
-            Rental.RentalList.Add(new Rental("alpha alpha", "1142149212", "Die Hard", 1, 10));
+           
         }
 
+        public static string savedir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\";
+        
         private void deleteMovieToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditMovie editmovie = new EditMovie();
@@ -62,6 +58,7 @@ namespace WindowsForms_html
             EditRental editrental = new EditRental();
             editrental.Show();
         }
+
     }
 
 
